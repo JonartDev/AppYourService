@@ -22,13 +22,21 @@
                         <img src="assets/images/ayslogo.jpg" height="80" class='mb-4'>
                     </div>
                     <form action="/dashboard">
+                    <!-- <form action="{{ route('dashboard') }}"> -->
+                        <!-- @csrf -->
                         <div class="form-group position-relative has-icon-left">
-                            <label for="username">Username</label>
+                            <label for="email">Email</label>
                             <div class="position-relative">
                                 <input type="text" class="form-control" id="username">
+                                <!-- <input id="email" type="email" class="form-control form-control-xl @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus> -->
                                 <div class="form-control-icon">
                                     <i data-feather="user"></i>
                                 </div>
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
                         <div class="form-group position-relative has-icon-left">
@@ -40,9 +48,15 @@
                             </div>
                             <div class="position-relative">
                                 <input type="password" class="form-control" id="password">
+                                <!-- <input id="password" type="password" class="form-control form-control-xl @error('password') is-invalid @enderror" name="password" required autocomplete="current-password"> -->
                                 <div class="form-control-icon">
                                     <i data-feather="lock"></i>
                                 </div>
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 
@@ -54,6 +68,9 @@
                         </div>
                         <div class="clearfix">
                             <button class="btn btn-default float-end" style="font-weight: 600;">Submit</button>
+                            <!-- <button type="submit" class="btn btn-default float-end">
+                                {{ __('Login') }}
+                            </button> -->
                         </div>
                     </form>
                     

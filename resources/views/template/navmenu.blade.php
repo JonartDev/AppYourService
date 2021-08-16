@@ -16,8 +16,8 @@
         <ul class="menu">
             <li class="sidebar-title">Menu</li>
             
-            <li class="sidebar-item {{ Request::is('/') ? 'active':''}}">
-                <a href="/" class='sidebar-link'>
+            <li class="sidebar-item {{ Request::is('dashboard') ? 'active':''}}">
+                <a href="/dashboard" class='sidebar-link'>
                     <i class="fas fa-home"></i>
                     <span>Dashboard</span>
                 </a>
@@ -30,7 +30,7 @@
                 </a>
             </li>
             
-            <li class="sidebar-item">
+            <li class="sidebar-item {{ Request::is('efranchiselist') ? 'active':''}}">
                 <a href="/efranchiseelist" class='sidebar-link'>
                     <i class="fas fa-user-tie"></i>
                     <span>E-Franchisee List</span>
@@ -44,7 +44,7 @@
                 </a>
             </li>
 
-            <li class="sidebar-item">
+            <li class="sidebar-item {{ Request::is('rider') ? 'active':''}}">
                 <a href="/rider" class='sidebar-link'>
                     <i class="fas fa-motorcycle"></i>
                     <span>Approved Rider</span>
@@ -55,6 +55,26 @@
                 <a href="/store" class='sidebar-link'>
                     <i class="fas fa-store"></i>
                     <span>Approved Store</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item {{ Request::is('payoutprocessing') ? 'active':''}}">
+                <a href="/payoutprocessing" class='sidebar-link'>
+                    <i class="fas fa-money-check"></i>
+                    <span>Payout Processing</span>
+                </a>
+            </li>
+            
+            <li class="sidebar-item {{ Request::is('reports') ? 'active':''}}">
+                <a href="/reports" class='sidebar-link'>
+                    <i class="fas fa-file"></i>
+                    <span>Reports</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="/logout" class='sidebar-link' onclick="return confirm('Are You sure you want to logout?');">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
                 </a>
             </li>
             

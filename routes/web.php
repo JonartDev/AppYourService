@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::get('login', function(){
-    return view('login');
+    return view('auth.login');
+});
+Route::get('/', function(){
+    return view('auth.login');
+});
+Route::get('efranchiseelist', function(){
+    return view('efranchise');
 });
 
 Route::get('memberlist', function(){
@@ -25,18 +31,25 @@ Route::get('memberlist', function(){
 Route::get('manpower',function(){
     return view('manpower');
 });
+Route::get('rider',function(){
+    return view('rider');
+});
 
 Route::get('store',function(){
     return view('store');
 });
-
+Route::get('payoutprocessing',function(){
+    return view('payoutprocessing');
+});
+Route::get('reports',function(){
+    return view('reports');
+});
+Route::get('dashboard',function(){
+    return view('dashboard');
+});
 
 Auth::routes();
 
-// Route::get('/', [HomeController::class, 'login'])->name('login');
+// Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
 Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
-Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
-Route::get('/efranchise', [HomeController::class, 'efranchise'])->name('efranchise');
-Route::get('/rider', [HomeController::class, 'rider'])->name('rider');
-Route::get('/payoutprocessing', [HomeController::class, 'payoutprocessing'])->name('payoutprocessing');
-Route::get('/reports', [HomeController::class, 'reports'])->name('reports');
+
